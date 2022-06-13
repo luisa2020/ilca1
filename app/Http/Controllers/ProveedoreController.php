@@ -18,15 +18,42 @@ class ProveedoreController extends Controller
      */
     public function index()
     {
-        $proveedores = Proveedore::paginate();
+        $proveedores = Proveedore::orderBy('IdProveedor','DESC')->paginate(10);
 
         return view('proveedore.index', compact('proveedores'))
             ->with('i', (request()->input('page', 1) - 1) * $proveedores->perPage());
     }
 
     public function guardar(){
-        return request();
+        $campos= request()->validate([
+            'IdProveedor'=>'required|min:1',
+            'Nombreempresa'=>'required',
+            'Nit'=>'required',
+            'Email'=>'required|email',
+            'Nombre'=>'required'
+        ]);
+        Proveedore::create($campos);
+        return redirect('proveedores') ->with('success', 'Proveedor creado');
     }
+
+    public function actualizar($proveedores){
+        $campos= request()->validate([
+            'IdProveedor'=>'required|min:1',
+            'Nombreempresa'=>'required',
+            'Nit'=>'required',
+            'Email'=>'required|email',
+            'Nombre'=>'required'
+        ]);
+        $proveedores->update($campos);
+        return redirect('proveedores')->with('mensaje','Proveedor actualizado');
+    }
+
+    public function eliminar(Proveedore $proveedore){
+        $proveedore->delete();
+        return redirect('proveedores')->with('mensaje','Proveedor eliminado');
+    }
+
+ 
 
 
     /**

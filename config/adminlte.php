@@ -250,11 +250,11 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
-        [
-            'text' => 'Usuarios',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
+        // [
+        //     'text' => 'Usuarios',
+        //     'url'  => 'admin/settings',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
         [
             'text'        => 'Clientes',
             'url'         => 'clientes',
@@ -274,7 +274,7 @@ return [
         ],
         [
             'text' => 'Insumos',
-            'url'  => 'admin/settings',
+            'url'  => 'insumos',
             'icon' => 'fas fa-shipping-fast',
         ],
         [

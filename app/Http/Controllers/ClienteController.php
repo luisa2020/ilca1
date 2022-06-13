@@ -24,10 +24,23 @@ class ClienteController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $clientes->perPage());
     }
 
+
     public function guardar(){
-        return request();
+        $campos= request()->validate([
+            'IdCliente'=>'required|min:1',
+            'Nombre'=>'required',
+            'Apellido'=>'required',
+            'Cedula'=>'required',
+            'Telefono'=>'required',
+            'Direccion'=>'required',
+            'Email'=>'required|email',
+            'Estado'=>'required',
+        ]);
+        Cliente::create($campos);
+        return redirect('clientes') ->with('success', 'cliente creado');
     }
 
+  
     /**
      * Show the form for creating a new resource.
      *
@@ -61,9 +74,9 @@ class ClienteController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($IdCliente)
     {
-        $cliente = Cliente::find($id);
+        $cliente = Cliente::find($IdCliente);
 
         return view('cliente.show', compact('cliente'));
     }

@@ -38,6 +38,7 @@ class Cliente extends Model
     protected $perPage = 20;
     protected $primaryKey = 'IdCliente';
 
+
     /**
      * Attributes that should be mass-assignable.
      *

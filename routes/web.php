@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClienteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProveedoreController;
 
@@ -36,9 +37,8 @@ Route::patch('/clientes/update', [App\Http\Controllers\ClienteController::class,
 Route::post('/clientes/store',[App\Http\Controllers\ClienteController::class, 'store'])->name('clientes.store');
 /*para eliminar*/ 
 Route::delete('/clientes/destroy/{IdCliente}', [App\Http\Controllers\ClienteController::class, 'destroy'])->name('clientes.destroy');
-
 /* para guardar form*/
-Route::post('/clientes',[ClienteController::class, 'guardar'])->name('empleadoGuardar');
+Route::post('/clientes',[ClienteController::class, 'guardar'])->name('clientesGuardar');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -53,7 +53,8 @@ Route::get('/proveedores/edit/{IdProveedor}', [App\Http\Controllers\ProveedoreCo
 Route::get('/proveedores/edit/{IdProveedor}', [App\Http\Controllers\ProveedoreController::class, 'edit'])->name('proveedores.edit');
 Route::get('/proveedores/show/{IdProveedor}',[App\Http\Controllers\ProveedoreController::class, 'show'])->name('proveedore.show');
 Route::get('/proveedores/show/{IdProveedor}',[App\Http\Controllers\ProveedoreController::class, 'show'])->name('proveedores.show');
-
+/* Estado*/
+//Route::get('/proveedores', [App\Http\Controllers\ProveedoreController::class, 'estado'])->name('proveedore.estado');
 /*recibe get y post*/ 
 Route::patch('/proveedores/update', [App\Http\Controllers\ProveedoreController::class, 'update'])->name('proveedores.update');
 /*recibe post*/ 
@@ -62,7 +63,11 @@ Route::post('/proveedores/store',[App\Http\Controllers\ProveedoreController::cla
 Route::delete('/proveedores/destroy/{IdProveedor}', [App\Http\Controllers\ProveedoreController::class, 'destroy'])->name('proveedores.destroy');
 /* para guardar form*/
 Route::post('/proveedores',[ProveedoreController::class, 'guardar'])->name('proveedoresGuardar');
+/*Actualizar*/ 
+Route::put('/proveedores/actualizar/{IdProveedor}',[ProveedoreController::class, 'actualizar'])->name('proveedoresActualizar');
 
+
+// Route::delete('/proveedores/eliminar/{IdProveedor}',[ProveedoreController::class, 'eliminar'])->name('proveedoresEliminar');
 /* Rutas para insumos*/
 Route::get('/insumos', [App\Http\Controllers\InsumoController::class, 'index'])->name('insumo.index');
 Route::get('/insumos', [App\Http\Controllers\InsumoController::class, 'index'])->name('insumos.index');

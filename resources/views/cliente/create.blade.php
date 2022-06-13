@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Create clientes 
+    Create Cliente
 @endsection
 
 @section('content')

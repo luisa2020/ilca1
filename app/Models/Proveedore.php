@@ -35,7 +35,7 @@ class Proveedore extends Model
      *
      * @var array
      */
-    protected $fillable = ['IdProveedor','NombreEmpresa','Nit','Email','Nombre'];
+    protected $guarded=[];
 
 
     /**

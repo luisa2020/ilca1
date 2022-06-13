@@ -24,6 +24,9 @@ class InsumoController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $insumos->perPage());
     }
 
+
+    
+
     /**
      * Show the form for creating a new resource.
      *
