@@ -14,8 +14,8 @@ class CreateUnidadesmedidaTable extends Migration
     public function up()
     {
         Schema::create('unidadesmedida', function (Blueprint $table) {
-            $table->integer('IdUnidadMedida')->primary();
-            $table->string('Descripcion', 45);
+            $table->bigIncrements('IdUnidadMedida');
+            $table->string('Nombre',30);
             $table->timestamps();
         });
     }

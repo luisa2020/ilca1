@@ -14,11 +14,11 @@ class CreateDetalleventasTable extends Migration
     public function up()
     {
         Schema::create('detalleventas', function (Blueprint $table) {
-            $table->integer('IdDetalleVenta', true);
+            $table->bigIncrements('IdDetalleVenta');
             $table->integer('Cantidad');
-            $table->double('Total')->nullable();
-            $table->integer('Ventas_IdVenta')->index('fk_DetalleVentas_Ventas1_idx');
-            $table->integer('Productos_IdProducto')->index('fk_DetalleVentas_Productos1_idx');
+            $table->double('Total');
+            $table->unsignedBigInteger('Ventas_IdVenta')->index('fk_DetalleVentas_Ventas1_idx');
+            $table->unsignedBigInteger('Productos_IdProducto')->index('fk_DetalleVentas_Productos1_idx');
             $table->timestamps();
         });
     }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $insumo->name ?? 'Show Insumo' }}
+    {{ $detallecompra->name ?? 'Show Detallecompra' }}
 @endsection
 
 @section('content')
@@ -11,34 +11,38 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Insumo</span>
+                            <span class="card-title">Show Detallecompra</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('insumos.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('detallecompras.index') }}"> Back</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Idinsumo:</strong>
-                            {{ $insumo->IdInsumo }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Nombre:</strong>
-                            {{ $insumo->Nombre }}
+                            <strong>Iddetallecompra:</strong>
+                            {{ $detallecompra->IdDetalleCompra }}
                         </div>
                         <div class="form-group">
                             <strong>Cantidad:</strong>
-                            {{ $insumo->Cantidad }}
+                            {{ $detallecompra->Cantidad }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Precio:</strong>
+                            {{ $detallecompra->Precio }}
                         </div>
                         <div class="form-group">
                             <strong>Estado:</strong>
-                            {{ $insumo->Estado }}
+                            {{ $detallecompra->Estado }}
                         </div>
                         <div class="form-group">
-                            <strong>Unidadesmedida Idunidadmedida:</strong>
-                            {{ $insumo->UnidadesMedida_IdUnidadMedida }}
+                            <strong>Insumos Idinsumo:</strong>
+                            {{ $detallecompra->Insumos_IdInsumo }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Compras Idcompra:</strong>
+                            {{ $detallecompra->Compras_IdCompra }}
                         </div>
 
                     </div>

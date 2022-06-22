@@ -14,11 +14,11 @@ class CreateProduccionesTable extends Migration
     public function up()
     {
         Schema::create('producciones', function (Blueprint $table) {
-            $table->integer('IdProduccion', true);
+            $table->bigIncrements('IdProduccion');
             $table->string('Nombre', 45);
             $table->integer('CantidadProducir');
             $table->date('Fecha');
-            $table->integer('Productos_IdProducto')->index('fk_Producciones_Productos1_idx');
+            $table->unsignedBigInteger('Productos_IdProducto')->index('fk_Producciones_Productos1_idx');
             $table->timestamps();
         });
     }

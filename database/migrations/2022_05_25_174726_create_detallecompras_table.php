@@ -14,12 +14,12 @@ class CreateDetallecomprasTable extends Migration
     public function up()
     {
         Schema::create('detallecompras', function (Blueprint $table) {
-            $table->integer('IdDetalleCompra', true);
+            $table->bigIncrements('IdDetalleCompra');
             $table->integer('Cantidad');
-            $table->double('CostoUnidad');
-            $table->double('Total');
-            $table->integer('Insumos_IdInsumo')->index('fk_DetalleCompras_Insumos1_idx');
-            $table->integer('Compras_IdCompra')->index('fk_DetalleCompras_Compras1_idx');
+            $table->double('Precio');
+            $table->boolean('Estado');
+            $table->unsignedBigInteger('Insumos_IdInsumo')->index('fk_DetalleCompras_Insumos1_idx');
+            $table->unsignedBigInteger('Compras_IdCompra')->index('fk_DetalleCompras_Compras1_idx');
             $table->timestamps();
         });
     }
