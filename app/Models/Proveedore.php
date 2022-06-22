@@ -23,7 +23,6 @@ class Proveedore extends Model
 {
     
     static $rules = [
-		'IdProveedor' => 'required',
 		'NombreEmpresa' => 'required',
     ];
 

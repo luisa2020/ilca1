@@ -26,7 +26,7 @@ class AddForeignKeysToComprasTable extends Migration
     public function down()
     {
         Schema::table('compras', function (Blueprint $table) {
-            $table->dropForeign('fk_Compras_Proveedores1');
+            $table->foreign('fk_Compras_Proveedores1');
         });
     }
 }

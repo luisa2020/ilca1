@@ -8,10 +8,9 @@ use Illuminate\Database\Eloquent\Model;
  * Class Insumo
  *
  * @property $IdInsumo
- * @property $Descripcion
- * @property $StockMin
- * @property $StockMax
- * @property $Stock
+ * @property $Nombre
+ * @property $Cantidad
+ * @property $Estado
  * @property $UnidadesMedida_IdUnidadMedida
  * @property $created_at
  * @property $updated_at
@@ -26,11 +25,10 @@ class Insumo extends Model
 {
     
     static $rules = [
-		'IdInsumo' => 'required',
-		'Descripcion' => 'required',
-		'StockMin' => 'required',
-		'StockMax' => 'required',
-		'Stock' => 'required',
+		'Nombre' => 'required',
+		'Cantidad' => 'required',
+        'Precio'=>'required',
+		'Estado' => 'required',
 		'UnidadesMedida_IdUnidadMedida' => 'required',
     ];
 
@@ -42,7 +40,7 @@ class Insumo extends Model
      *
      * @var array
      */
-    protected $fillable = ['IdInsumo','Descripcion','StockMin','StockMax','Stock','UnidadesMedida_IdUnidadMedida'];
+    protected $fillable = ['Nombre','Cantidad','Precio','Estado','UnidadesMedida_IdUnidadMedida'];
 
 
     /**

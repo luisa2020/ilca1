@@ -18,7 +18,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $clientes = Cliente::paginate();
+        $clientes = Cliente::orderBy('IdCliente','DESC')->paginate(10);
 
         return view('cliente.index', compact('clientes'))
             ->with('i', (request()->input('page', 1) - 1) * $clientes->perPage());
@@ -27,7 +27,6 @@ class ClienteController extends Controller
 
     public function guardar(){
         $campos= request()->validate([
-            'IdCliente'=>'required|min:1',
             'Nombre'=>'required',
             'Apellido'=>'required',
             'Cedula'=>'required',
@@ -51,6 +50,21 @@ class ClienteController extends Controller
         $cliente = new Cliente();
         return view('cliente.create', compact('cliente'));
     }
+
+
+    public function UpdateStatusNoti(Request $request){ 
+    
+        $NotiUpdate = Cliente::findOrFail($request->IdCliente)->update(['Estado' => $request->Estado]); 
+    
+        if($request->Estado == 0)  {
+            $newStatus ='<br> <button type="button" class="btn btn-sm btn-danger">Inactiva</button>';
+        }else{
+            $newStatus ='<br> <button type="button" class="btn btn-sm btn-success">Activa</button>';
+        }
+    
+        return response()->json(['var'=>''.$newStatus.'']);
+    }
+
 
     /**
      * Store a newly created resource in storage.

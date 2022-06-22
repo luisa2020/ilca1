@@ -14,9 +14,9 @@ class CreateVentasTable extends Migration
     public function up()
     {
         Schema::create('ventas', function (Blueprint $table) {
-            $table->integer('IdVenta', true);
+            $table->bigIncrements('IdVenta');
             $table->boolean('Estado')->nullable();
-            $table->integer('Clientes_IdCliente')->index('fk_Ventas_Clientes1_idx');
+            $table->unsignedBigInteger('Clientes_IdCliente')->index('fk_Ventas_Clientes1_idx');
             $table->timestamps();
         });
     }

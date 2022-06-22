@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $insumo->name ?? 'Show Insumo' }}
+    {{ $compra->name ?? 'Show Compra' }}
 @endsection
 
 @section('content')
@@ -11,34 +11,38 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Insumo</span>
+                            <span class="card-title">Show Compra</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('insumos.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('compras.index') }}"> Back</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Idinsumo:</strong>
-                            {{ $insumo->IdInsumo }}
+                            <strong>Idcompra:</strong>
+                            {{ $compra->IdCompra }}
                         </div>
                         <div class="form-group">
-                            <strong>Nombre:</strong>
-                            {{ $insumo->Nombre }}
+                            <strong>Factura:</strong>
+                            {{ $compra->Factura }}
                         </div>
                         <div class="form-group">
-                            <strong>Cantidad:</strong>
-                            {{ $insumo->Cantidad }}
+                            <strong>Total:</strong>
+                            {{ $compra->Total }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Fecha:</strong>
+                            {{ $compra->Fecha }}
                         </div>
                         <div class="form-group">
                             <strong>Estado:</strong>
-                            {{ $insumo->Estado }}
+                            {{ $compra->Estado }}
                         </div>
                         <div class="form-group">
-                            <strong>Unidadesmedida Idunidadmedida:</strong>
-                            {{ $insumo->UnidadesMedida_IdUnidadMedida }}
+                            <strong>Proveedores Idproveedor:</strong>
+                            {{ $compra->Proveedores_IdProveedor }}
                         </div>
 
                     </div>

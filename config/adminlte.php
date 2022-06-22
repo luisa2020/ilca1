@@ -245,7 +245,7 @@ return [
         ],
         [
             'text'        => 'Dashboard',
-            'url'         => 'admin/pages',
+            'url'         => 'home',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
@@ -269,8 +269,17 @@ return [
         ],
         [
             'text' => 'Compras',
-            'url'  => 'admin/settings',
             'icon' => 'fas fa-shopping-cart',
+            'submenu' => [
+                [
+                    'text' => 'Compras',
+                    'url'  => 'compras',
+                ],
+                [
+                    'text' => 'Detaller Compra',
+                    'url'  => 'detalleCompra',
+                ],
+            ],
         ],
         [
             'text' => 'Insumos',
@@ -279,7 +288,7 @@ return [
         ],
         [
             'text' => 'Productos',
-            'url'  => 'admin/settings',
+            'url'  => 'producto',
             'icon' => 'fas fa-hanukiah',
         ],
         [
@@ -302,6 +311,12 @@ return [
             'text' => 'change_password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
+        ],
+        ['header' => 'CONFIGURACIÓN'],
+        [
+            'text' => 'Unidades de medida',
+            'url'  => 'unidadesmedida',
+            'icon' => 'fas fa-shipping-fast',
         ],
     ],
 

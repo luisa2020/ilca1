@@ -14,11 +14,11 @@ class CreateProductosinsumosTable extends Migration
     public function up()
     {
         Schema::create('productosinsumos', function (Blueprint $table) {
-            $table->integer('IdProductosInsumos', true);
+            $table->bigIncrements('IdProductosInsumos');
             $table->integer('Cantidad');
-            $table->integer('Productos_IdProducto')->index('fk_ProductosInsumos_Productos1_idx');
-            $table->integer('UnidadesMedida_IdUnidadMedida')->index('fk_ProductosInsumos_UnidadesMedida1_idx');
-            $table->integer('Insumos_IdInsumo')->index('fk_ProductosInsumos_Insumos1_idx');
+            $table->unsignedBigInteger('Productos_IdProducto')->index('fk_ProductosInsumos_Productos1_idx');
+            $table->unsignedBigInteger('UnidadesMedida_IdUnidadMedida')->index('fk_ProductosInsumos_UnidadesMedida1_idx');
+            $table->unsignedBigInteger('Insumos_IdInsumo')->index('fk_ProductosInsumos_Insumos1_idx');
             $table->timestamps();
         });
     }

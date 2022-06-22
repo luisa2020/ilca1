@@ -34,19 +34,15 @@
                     @endif
                     <form action="{{ route('proveedoresGuardar') }}" method="POST">
                         @csrf
-                        <div class="form-group">
-                            <label for="nombre">Id Proveedor</label>
-                            <input type="text" class="form-control" name="IdProveedor" id="IdProveedor"
-                                placeholder="Ingrese el idProveedor" value="{{ old('IdProveedor') }}">
-                            <small class="text-danger">{{ $errors->first('idProveedor') }}</small>
 
+                        
                             <div class="form-group">
                                 <label for="nombre">Nombre de la empresa</label>
-                                <input type="text" class="form-control" name="Nombreempresa" id="Nombreempresa"
+                                <input type="text" class="form-control" name="NombreEmpresa" id="NombreEmpresa"
                                     placeholder="Ingrese nombre de la empresa" value="{{ old('Nombreempresa') }}">
-                                <small class="text-danger">{{ $errors->first('Nombreempresa') }}</small>
+                                <small class="text-danger">{{ $errors->first('NombreEmpresa') }}</small>
                             </div>
-                        </div>
+                        
 
                         <div class="form-group">
                             <label for="nombre">Nit</label>
@@ -176,7 +172,7 @@
                                         </button>
                                     </div>
 
-                                    @csrf @method('PUT');
+                                    @csrf @method('PUT')
                                     @if ($errors->any())
                                         @foreach ($errors->all() as $error)
                                             <p>{{ $error }}</p>
@@ -184,19 +180,13 @@
                                     @endif
                     
                                     <div class="modal-body">
-                                        <div class="form-group">
-                                            <label for="nombre">Id Proveedor</label>
-                                            <input type="text" class="form-control" name="IdProveedor" id="IdProveedor"
-                                                placeholder="Ingrese el idProveedor" value="{{ old('IdProveedor') }}">
-                                            <small class="text-danger">{{ $errors->first('idProveedor') }}</small>
-                
                                             <div class="form-group">
                                                 <label for="nombre">Nombre de la empresa</label>
-                                                <input type="text" class="form-control" name="Nombreempresa" id="Nombreempresa"
-                                                    placeholder="Ingrese nombre de la empresa" value="{{ old('Nombreempresa') }}">
-                                                <small class="text-danger">{{ $errors->first('Nombreempresa') }}</small>
+                                                <input type="text" class="form-control" name="NombreEmpresa" id="NombreEmpresa"
+                                                    placeholder="Ingrese nombre de la empresa" value="{{ old('NombreEmpresa') }}">
+                                                <small class="text-danger">{{ $errors->first('NombreEmpresa') }}</small>
                                             </div>
-                                        </div>
+                                       
                 
                                         <div class="form-group">
                                             <label for="nombre">Nit</label>

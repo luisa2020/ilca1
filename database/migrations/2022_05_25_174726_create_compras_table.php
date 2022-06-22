@@ -14,11 +14,12 @@ class CreateComprasTable extends Migration
     public function up()
     {
         Schema::create('compras', function (Blueprint $table) {
-            $table->integer('IdCompra', true);
-            $table->integer('NumeroRecibo')->nullable();
-            $table->dateTime('FechaRecibo')->nullable();
-            $table->timestamp('FechaRegistro')->useCurrentOnUpdate()->useCurrent();
-            $table->integer('Proveedores_IdProveedor')->index('fk_Compras_Proveedores1_idx');
+            $table->bigIncrements('IdCompra');
+            $table->string ('Factura');
+            $table->double('Total');
+            $table->dateTime ('Fecha');
+            $table->boolean('Estado');
+            $table->unsignedBigInteger('Proveedores_IdProveedor')->index('fk_Compras_Proveedores1_idx');
             $table->timestamps();
         });
     }

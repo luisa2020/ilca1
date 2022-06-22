@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Insumo;
 use Illuminate\Http\Request;
+use App\Models\Unidadesmedida;
 
 /**
  * Class InsumoController
@@ -18,14 +19,36 @@ class InsumoController extends Controller
      */
     public function index()
     {
-        $insumos = Insumo::paginate();
+        $insumos = Insumo::orderBy('IdInsumo','DESC')->paginate(10);
+        $UnidadesMedida=Unidadesmedida::all();
 
-        return view('insumo.index', compact('insumos'))
+        return view('insumo.index', compact('insumos','UnidadesMedida'))
             ->with('i', (request()->input('page', 1) - 1) * $insumos->perPage());
     }
 
+    public function guardar(){
+        $campos= request()->validate([
+            'Nombre'=>'required',
+            'Cantidad'=>'required',
+            'Estado'=>'required',
+            'UnidadesMedida_IdUnidadMedida'=>'required'
+        ]);
+        Insumo::create($campos);
+        return redirect('insumos') ->with('success', 'Insumo creado');
+    }
 
-    
+    public function actualizar($insumo){
+        $campos= request()->validate([
+            'Nombre'=>'required',
+            'Cantidad'=>'required',
+            'Estado'=>'required|email',
+            'UnidadesMedida_IdUnidadMedida'=>'required'
+        ]);
+        $insumo->update($campos);
+        return redirect('insumos')->with('mensaje','Insumo actualizado');
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -35,7 +58,8 @@ class InsumoController extends Controller
     public function create()
     {
         $insumo = new Insumo();
-        return view('insumo.create', compact('insumo'));
+        $unidadesMedida=Unidadesmedida::all();
+        return view('insumo.create', compact('insumo','unidadesMedida'));
     }
 
     /**

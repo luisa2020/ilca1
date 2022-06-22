@@ -26,7 +26,6 @@ class ProveedoreController extends Controller
 
     public function guardar(){
         $campos= request()->validate([
-            'IdProveedor'=>'required|min:1',
             'Nombreempresa'=>'required',
             'Nit'=>'required',
             'Email'=>'required|email',
@@ -38,8 +37,7 @@ class ProveedoreController extends Controller
 
     public function actualizar($proveedores){
         $campos= request()->validate([
-            'IdProveedor'=>'required|min:1',
-            'Nombreempresa'=>'required',
+            'NombreEmpresa'=>'required',
             'Nit'=>'required',
             'Email'=>'required|email',
             'Nombre'=>'required'
@@ -67,6 +65,8 @@ class ProveedoreController extends Controller
         return view('proveedore.create', compact('proveedore'));
     }
 
+
+ 
     /**
      * Store a newly created resource in storage.
      *
@@ -139,3 +139,4 @@ class ProveedoreController extends Controller
             ->with('success', 'Proveedore deleted successfully');
     }
 }
+

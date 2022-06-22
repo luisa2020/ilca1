@@ -14,12 +14,12 @@ class CreateInsumosTable extends Migration
     public function up()
     {
         Schema::create('insumos', function (Blueprint $table) {
-            $table->integer('IdInsumo', true);
-            $table->string('Descripcion', 45);
-            $table->integer('StockMin');
-            $table->integer('StockMax');
-            $table->integer('Stock');
-            $table->integer('UnidadesMedida_IdUnidadMedida')->index('fk_Insumos_UnidadesMedida1_idx');
+            $table->bigIncrements('IdInsumo');
+            $table->string('Nombre',30);
+            $table->integer('Cantidad');
+            $table->double('Precio');
+            $table->boolean('Estado');
+            $table->unsignedBigInteger('UnidadesMedida_IdUnidadMedida')->index('fk_Insumos_UnidadesMedida1_idx');
             $table->timestamps();
         });
     }
